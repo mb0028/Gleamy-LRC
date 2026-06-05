@@ -8,4 +8,5 @@ App for editing or creating lrc files.
 
 
 ### TODOs
-[ ] Use mediastore for getting audio list faster (currently takes about 10s)
+- [ ] Use mediastore for getting audio list faster (currently takes about 10s)
+- [ ] UI Animations
