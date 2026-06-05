@@ -16,7 +16,8 @@
 *.log
 
 .vscode/
-Assets/Resources/**\
+Assets/Resources/**
+Assets/Resources.meta
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
