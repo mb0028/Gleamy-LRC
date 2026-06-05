@@ -2,7 +2,7 @@
 
 #### App for editing or creating lrc files.
 
-[Other Gleamy apps](https://github.com/mb0028/Gleamy-App)
+[Other Gleamy apps](https://github.com/mb0028/Gleamy-Apps)
 
 ### Screenshots
 
