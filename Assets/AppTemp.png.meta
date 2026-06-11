@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e2a79fe2c08d97347a386d9f48f66233
+guid: b101f2890d65bc2439b7257e89101b29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1959859930448477112
-    second: AppTemp2_0
+      213: -6808034421772294028
+    second: AppTemp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AppTemp2_0
+      name: AppTemp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 844c81ce6cd2dc4e0800000000000000
-      internalID: -1959859930448477112
+      spriteID: 47861af83c00581a0800000000000000
+      internalID: -6808034421772294028
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AppTemp2_0: -1959859930448477112
+      AppTemp_0: -6808034421772294028
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
