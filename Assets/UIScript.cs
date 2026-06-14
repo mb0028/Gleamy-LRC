@@ -48,7 +48,7 @@ public class UIScript : MonoBehaviour
         mbJava.Dispose();
 
         StartCoroutine(Clipboard());
-        
+
         Parallel.ForEach(CommonMusicDirs(), (dir, b) =>
         {
             List<string> dirs = Directory.GetDirectories(dir, "*", SearchOption.AllDirectories).ToList();
@@ -117,7 +117,8 @@ public class UIScript : MonoBehaviour
                 card.time.text = $"{tss.Minutes:D2}:{tss.Seconds:D2}.{tss.Milliseconds:D2}";
                 parser.ChangeLine(ii, tn);
 
-                g.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition -= 0.037865f / 6.102f;
+                var rec = lrcContents.GetComponent<RectTransform>().rect;
+                g.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition -= 0.000005f * (rec.height - 2200); // TODO: Fix it
 
                 for (int a = 0; a < lrcContents.transform.childCount; a++)
                     lrcContents.GetChild(a).gameObject.GetComponent<LineCard>().border.SetActive(false);
