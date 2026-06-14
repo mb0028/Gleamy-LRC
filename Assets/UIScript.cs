@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using MB28.Music;
 using TMPro;
@@ -32,10 +33,11 @@ public class UIScript : MonoBehaviour
 
     public TimeSpan duration;
     public const string READ_MEDIA_AUDIO = "android.permission.READ_MEDIA_AUDIO";
-    private static List<string> pathsssss = new();
+    private static volatile List<string> pathsssss = new();
 
     void Start()
     {
+        Application.targetFrameRate = 120;
         AndroidJavaClass mbJava = new("com.mb28.mbjava.MBJava");
         if (mbJava.CallStatic<int>("CheckPermission", AndroidApplication.currentActivity, READ_MEDIA_AUDIO) != 0)
         {
@@ -43,16 +45,20 @@ public class UIScript : MonoBehaviour
             homeUI.SetActive(false);
             mbJava.CallStatic("RequestPermission", AndroidApplication.currentActivity, READ_MEDIA_AUDIO);
         }
-
         mbJava.Dispose();
+
         StartCoroutine(Clipboard());
-        Task.Run(() =>
+        
+        Parallel.ForEach(CommonMusicDirs(), (dir, b) =>
         {
-            foreach (var dir in CommonMusicDirs())
-                foreach (string path in Directory.GetFiles(dir, "*.mp3", SearchOption.AllDirectories))
+            List<string> dirs = Directory.GetDirectories(dir, "*", SearchOption.AllDirectories).ToList();
+            dirs.Add(dir);
+            Parallel.ForEach(dirs, (subdir, a) =>
+            {
+                foreach (string path in Directory.GetFiles(subdir, "*.mp3", SearchOption.TopDirectoryOnly))
                     pathsssss.Add(path);
+            });
         });
-        Application.targetFrameRate = 120;
     }
 
     public async void Select()
